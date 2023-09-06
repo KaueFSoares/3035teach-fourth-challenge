@@ -1,5 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom"
-import { ProfilePage, SearchPage } from "../pages"
+import { NotFoundPage, ProfilePage, SearchPage } from "../pages"
 
 const router = createBrowserRouter([
   {
@@ -9,6 +9,10 @@ const router = createBrowserRouter([
   {
     path: "/profile/:userName",
     element: <ProfilePage />,
+  },
+  {
+    path: "*",
+    element: <NotFoundPage />,
   },
 ])
 

@@ -11,7 +11,6 @@ export default {
         "light-blue": "#0070E0",
         "orange": "#FC8621",
         "gray": "#BDBDBD",
-        "dark-green": "#00420C",
       },
       screens: {
         xsm: "380px",

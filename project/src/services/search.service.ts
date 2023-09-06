@@ -1,7 +1,7 @@
-import { SearchResponse } from "../types/SearchResponse"
+import { ResponseCode } from "../types/ResponseCode"
 import { API } from "./api"
 
-export const search = async (username: string): Promise<SearchResponse> => {
+export const search = async (username: string): Promise<ResponseCode> => {
   try {
     const response = await API.get(`/${username}`, { 
       validateStatus: (status) => status === 200 || status === 404, 

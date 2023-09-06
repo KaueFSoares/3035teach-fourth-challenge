@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { ProfileData, RepoData, getData } from "../services/profile.service"
 import Loading from "../components/Loading"
+import Header from "../components/Header"
 
 const ProfilePage = () => {
   const navigate = useNavigate()
@@ -26,9 +27,9 @@ const ProfilePage = () => {
   }, [ navigate, userName ])
 
   return (
-    <main className="w-full h-screen">
+    <main className="w-full h-screen bg-gray/[.5]">
       {(profile && repos) ? (
-        <p>carregou</p>
+        <Header />
       ) : (
         <Loading />
       )}

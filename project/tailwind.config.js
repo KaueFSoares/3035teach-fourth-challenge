@@ -15,6 +15,9 @@ export default {
       screens: {
         xsm: "380px",
       },
+      animation: {
+        "spin-slow": "spin 3s linear infinite",
+      },
     },
   },
   plugins: [],

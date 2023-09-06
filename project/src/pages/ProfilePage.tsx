@@ -5,7 +5,7 @@ import Loading from "../components/Loading"
 
 const ProfilePage = () => {
   const navigate = useNavigate()
-  
+
   const { userName } = useParams<{userName: string}>()
 
   const [ profile, setProfile ] = useState<ProfileData>()
@@ -23,7 +23,7 @@ const ProfilePage = () => {
         setRepos(data[2])
       })
     }
-  }, [ userName ])
+  }, [ navigate, userName ])
 
   return (
     <main className="w-full h-screen">

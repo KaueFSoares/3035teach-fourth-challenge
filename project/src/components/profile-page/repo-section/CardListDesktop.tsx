@@ -11,7 +11,7 @@ interface CardListDesktopProps {
 
 const CardListDesktop = ({ repos, loading, page, repoAmount }: CardListDesktopProps) => {
   return (
-    <div className="hidden lg:flex flex-row flex-wrap w-full gap-4 xl:gap-8 mb-4 lg:mb-0 lg:mt-4">
+    <div className={`hidden lg:flex flex-row flex-wrap w-full gap-4 xl:gap-8 mb-4 lg:mb-0 mt-4 ${loading && "h-[260px]"}`}>
       {loading ? (
         <Loading />
       ) : (

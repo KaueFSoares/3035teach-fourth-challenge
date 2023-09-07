@@ -41,7 +41,7 @@ const ProfilePage = () => {
 
   return (
     <ModalContext.Provider value={{ onShowModal }}>
-      <main className={`w-full min-h-screen bg-gray/[.5] flex flex-col items-center justify-start ${showModal && "max-md:h-screen"}`}>
+      <main className={`w-full min-h-screen bg-gray/[.5] flex flex-col items-center justify-start ${showModal && "max-md:h-screen"} ${!profile && "h-screen"}`}>
         {profile ? (
           <>
             <Header />

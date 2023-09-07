@@ -6,13 +6,13 @@ interface RepoCardProps {
 
 const RepoCard = ({ data: repo }: RepoCardProps) => {
   return (
-    <div className="w-full sm:w-[calc(50%-.5rem)] md:w-[calc(33.333%-.67rem)]
+    <div className="w-full sm:w-[calc(50%-.5rem)] md:w-[calc(33.333%-.67rem)] xl:w-[calc(33.333%-1.335rem)]
                    shadow-repoCard rounded-lg">
       <h3 className="p-5 text-base font-semibold">{repo.name}</h3>
 
       <hr className="w-full text-dark-blue"/>
 
-      <div className="p-2 text-sm overflow-hidden flex flex-col gap-2">
+      <div className="p-2 lg:p-6 text-sm overflow-hidden flex flex-col gap-2 lg:gap-4 xl:px-10">
         <div className="overflow-hidden bg-gray/[.3] p-3 rounded-xl">
           <p className="font-semibold">Link</p>
           <p className="underline text-xs overflow-hidden text-ellipsis whitespace-nowrap">{repo.link ? repo.link : "No Link"}</p>

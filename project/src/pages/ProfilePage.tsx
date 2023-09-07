@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { ProfileData, getProfile } from "../services/profile.service"
 import Loading from "../components/Loading"
 import Header from "../components/profile-page/Header"
-import RepoSection from "../components/profile-page/repo-section/RepoSection"
+import RepoSection from "../components/profile-page/repo-section"
 
 const ProfilePage = () => {
   const navigate = useNavigate()

@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { search } from "../services/search.service"
 import Loading from "../components/Loading"
-import Message from "../components/Message"
+import Message from "../components/search-page/Message"
 
 const SearchPage = () => {
   const navigate = useNavigate()

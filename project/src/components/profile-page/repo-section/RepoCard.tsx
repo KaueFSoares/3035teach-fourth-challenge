@@ -1,4 +1,4 @@
-import { RepoData } from "../services/profile.service"
+import { RepoData } from "../../services/profile.service"
 
 interface RepoCardProps {
   data: RepoData

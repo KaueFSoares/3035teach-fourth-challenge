@@ -26,20 +26,6 @@ interface GitHubRepo {
   language: string | null;
 }
 
-export const getData = async (username: string): Promise<[ResponseCode, ProfileData, RepoData[]]> => {
-  const [ profileResponse, profileData ] = await getProfile(username)
-  const [ reposResponse, reposData ] = await getRepos(username, 1)
-
-  if (profileResponse === "ok" && reposResponse === "ok") {
-    return [ "ok", profileData, reposData ]
-  }
-
-  if (profileResponse === "notfound" && reposResponse === "notfound") {
-    return [ "notfound", profileData, reposData ]
-  }
-
-  return [ "error", profileData, reposData ]
-}
 
 export const getRepos = async (username: string, page: number): Promise<[ResponseCode, RepoData[]]> => {
   try {
@@ -72,7 +58,7 @@ export const getRepos = async (username: string, page: number): Promise<[Respons
   }
 }
 
-const getProfile = async (username: string): Promise<[ResponseCode, ProfileData]> => {
+export const getProfile = async (username: string): Promise<[ResponseCode, ProfileData]> => {
   try {
     const response = await API.get(`/${username}`, {
       validateStatus: (status) => status === 200 || status === 404,

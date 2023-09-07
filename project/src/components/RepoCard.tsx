@@ -6,7 +6,8 @@ interface RepoCardProps {
 
 const RepoCard = ({ data: repo }: RepoCardProps) => {
   return (
-    <div className="w-full shadow-repoCard rounded-lg">
+    <div className="w-full sm:w-[calc(50%-.5rem)] md:w-[calc(33.333%-.67rem)]
+                   shadow-repoCard rounded-lg">
       <h3 className="p-5 text-base font-semibold">{repo.name}</h3>
 
       <hr className="w-full text-dark-blue"/>
@@ -14,12 +15,12 @@ const RepoCard = ({ data: repo }: RepoCardProps) => {
       <div className="p-2 text-sm overflow-hidden flex flex-col gap-2">
         <div className="overflow-hidden bg-gray/[.3] p-3 rounded-xl">
           <p className="font-semibold">Link</p>
-          <p className="underline text-xs mr-2">{repo.link ? repo.link : "No Link"}</p>
+          <p className="underline text-xs overflow-hidden text-ellipsis whitespace-nowrap">{repo.link ? repo.link : "No Link"}</p>
         </div>
 
         <div className="overflow-hidden bg-gray/[.3] p-3 rounded-xl">
           <p className="font-semibold">Description</p>
-          <p>{repo.description ? repo.description : "No description"}</p>
+          <p className="overflow-hidden text-ellipsis whitespace-nowrap">{repo.description ? repo.description : "No description"}</p>
         </div>
       </div>
     </div>

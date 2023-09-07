@@ -17,7 +17,7 @@ const PageChangerDesktop = ({ page, setPage, repoAmount, handleOnLoadMoreDesktop
           disabled={page === 1}
           onClick={() => setPage((prevPage) => prevPage - 1)}
           className="hidden lg:flex
-                           justify-center items-center p-1 border border-black border-solid rounded-md disabled:grayscale disabled:opacity-30">
+                      justify-center items-center p-1 border border-black border-solid rounded-md disabled:grayscale disabled:opacity-30">
           <AiOutlineArrowLeft />
         </button>
 
@@ -25,7 +25,7 @@ const PageChangerDesktop = ({ page, setPage, repoAmount, handleOnLoadMoreDesktop
           disabled={page * 3 >= repoAmount}
           onClick={handleOnLoadMoreDesktop}
           className="hidden lg:flex
-                            justify-center items-center p-1 border border-black border-solid rounded-md disabled:grayscale disabled:opacity-30">
+                      justify-center items-center p-1 border border-black border-solid rounded-md disabled:grayscale disabled:opacity-30">
           <AiOutlineArrowRight />
         </button>
       </div>

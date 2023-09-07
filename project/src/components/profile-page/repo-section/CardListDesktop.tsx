@@ -23,7 +23,8 @@ const CardListDesktop = ({ repos, loading, page, repoAmount }: CardListDesktopPr
                 .map((repo) => (
                   <RepoCard key={repo.id} data={repo} />
                 ))}
-            </>) : (
+            </>
+          ) : (
             <p className="text-center">No repositories</p>
           )}
         </>

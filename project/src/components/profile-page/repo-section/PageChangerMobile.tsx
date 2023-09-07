@@ -16,7 +16,7 @@ const PageChangerMobile = ({ reposLenght, repoAmount, handleOnLoadMoreMobile }: 
           onClick={handleOnLoadMoreMobile}
           disabled={reposLenght === repoAmount}
           className="flex lg:hidden
-                            justify-center items-center p-1 border border-black border-solid rounded-md disabled:grayscale disabled:opacity-30">
+                      justify-center items-center p-1 border border-black border-solid rounded-md disabled:grayscale disabled:opacity-30">
           <BiPlus />
         </button>
       </div>

@@ -1,14 +1,23 @@
-import { RepoData } from "../../../services/profile.service"
+import { useContext } from "react"
+import { RepoMinData } from "../../../services/profile.service"
+import ModalContext from "../../../context/ModalContext"
 
 interface RepoCardProps {
-  data: RepoData
+  data: RepoMinData
 }
 
 const RepoCard = ({ data: repo }: RepoCardProps) => {
+  const { onShowModal } = useContext(ModalContext)
+  
   return (
     <div className="w-full sm:w-[calc(50%-.5rem)] md:w-[calc(33.333%-.67rem)] xl:w-[calc(33.333%-1.335rem)]
-                   shadow-repoCard rounded-lg">
-      <h3 className="p-5 text-base font-semibold">{repo.name}</h3>
+                   shadow-repo rounded-lg">
+      <h3 
+        className="p-5 text-base font-semibold cursor-pointer"
+        onClick={() => onShowModal(repo.name)}
+      >
+        {repo.name}
+      </h3>
 
       <hr className="w-full text-dark-blue"/>
 

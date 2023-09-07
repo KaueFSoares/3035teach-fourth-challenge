@@ -7,7 +7,7 @@
 ```javascript
    cd project
 ```
-4. In the project directory, execute the following command to install dependencies:
+3. In the project directory, execute the following command to install dependencies:
 ```javascript
    npm install
 ```
@@ -15,7 +15,7 @@ or
 ```javascript
   yarn
 ```
-3. After installing dependencies, execute the following command to start the development server:
+4. After installing dependencies, execute the following command to start the development server:
 ```javascript
   npm run dev
 ```
@@ -23,4 +23,4 @@ or
 ```javascript
   yarn run dev
 ```
-4. Open a web browser and access `http://localhost:5173` to view the application.
+5. Open a web browser and access `http://localhost:5173` to view the application.

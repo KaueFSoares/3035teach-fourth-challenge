@@ -48,7 +48,7 @@ const RepoModal = ({ userName, repoName }: Props) => {
 
               <div className="w-full bg-gray/[.3] p-2 rounded-lg lg:rounded-xl lg:p-3">
                 <p className="text-black/[.6] text-xs sm:text-sm">Language</p>
-                <p>{data.language}</p>
+                <p>{data.language ? data.language : "No language"}</p>
               </div>
 
               <div className="w-full bg-gray/[.3] p-2 rounded-lg lg:rounded-xl lg:p-3">

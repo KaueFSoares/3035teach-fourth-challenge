@@ -15,7 +15,7 @@ const ProfilePage = () => {
   const [ profile, setProfile ] = useState<ProfileData | undefined>()
   const [ repos, setRepos ] = useState<RepoData[] | undefined>()
   const [ loading, setLoading ] = useState(false)
-  const [ page, setPage ] = useState(0) // Changed from useRef
+  const [ page, setPage ] = useState(0)
 
   useEffect(() => {
     if (userName) {
@@ -27,7 +27,7 @@ const ProfilePage = () => {
         setProfile(data[1])
         setRepos(data[2])
 
-        setPage(1) // Changed from page.current = 1;
+        setPage(1)
       })
     }
   }, [ navigate, userName ])
@@ -36,16 +36,22 @@ const ProfilePage = () => {
     setLoading(true)
     getRepos(userName!, page + 1).then((data) => {
       setRepos((prev) => [ ...prev!, ...data[1] ])
-      setPage((prevPage) => prevPage + 1) // Changed from page.current += 1;
+      setPage((prevPage) => prevPage + 1)
       setLoading(false)
     })
   }
 
   const handleOnLoadMoreDesktop = () => {
     setLoading(true)
+    if (repos!.length > page * 3) {
+      setPage((prevPage) => prevPage + 1)
+      setLoading(false)
+      
+      return
+    }
     getRepos(userName!, page + 1).then((data) => {
       setRepos((prev) => [ ...prev!, ...data[1] ])
-      setPage((prevPage) => prevPage + 1) // Changed from page.current += 1;
+      setPage((prevPage) => prevPage + 1)
       setLoading(false)
     })
   }
@@ -55,12 +61,12 @@ const ProfilePage = () => {
       {profile && repos ? (
         <>
           <Header />
-          <div className="w-[95%] h-[100%] bg-white box-border shadow-md rounded-xl my-4 md:my-6">
-            <section className="p-5 lg:p-8">
+          <div className="w-[95%] h-[100%] bg-white box-border shadow-md rounded-xl my-4 md:my-6 xl:w-[85%]">
+            <section className="p-5 lg:p-8 xl:p-[5%] lg:pb-0">
               <h2 className="font-extrabold text-xl mb-4 md:text-2xl md:mb-8 xl:text-3xl">Profile info</h2>
 
               <div className="grid grid-cols-3 lg:gap-y-0 xl:grid-cols-4 gap-4 xl:gap-x-8
-                              w-full border border-gray border-solid rounded-xl p-2 sm:p-6 md:w-3/4 md:p-4 lg:p-8 lg:w-3/5 xl:w-1/2">
+                              w-full border border-gray border-solid rounded-xl p-2 sm:p-6 md:w-3/4 md:p-4 lg:p-8 lg:w-3/5">
                 <img
                   src={profile.image}
                   alt={profile.name}
@@ -82,8 +88,8 @@ const ProfilePage = () => {
 
             </section>
 
-            <section className="p-5 lg:p-8">
-              <h2 className="font-extrabold text-xl mb-4 md:text-2xl md:mb-8 xl:text-3xl">Repositories</h2>
+            <section className="p-5 lg:p-8 xl:px-[5%]">
+              <h2 className="font-extrabold text-xl mb-4 md:text-2xl md:mb-8 lg:mb-2 xl:text-3xl">Repositories</h2>
 
               <div className="w-full flex flex-col lg:flex-col-reverse">
 
@@ -100,12 +106,14 @@ const ProfilePage = () => {
                   {loading && <Loading />}
                 </div>
 
-                <div className="hidden lg:flex flex-row flex-wrap w-full gap-4 mb-4 lg:mb-0 lg:mt-4">
+                <div className="hidden lg:flex flex-row flex-wrap w-full gap-4 xl:gap-8 mb-4 lg:mb-0 lg:mt-4">
                   {repos.length > 0 ? (
                     <>
-                      {repos.slice((page - 1) * 3, (page - 1) * 3 + 3).map((repo, index) => (
-                        <RepoCard key={index} data={repo} />
-                      ))}
+                      {repos
+                        .slice((page - 1) * 3, ((page - 1) * 3 + 3) > profile.repoAmount ? profile.repoAmount : ((page - 1) * 3 + 3))
+                        .map((repo) => (
+                          <RepoCard key={repo.id} data={repo} />
+                        ))}
                     </>) : (
                     <p className="text-center">No repositories</p>
                   )}
@@ -139,7 +147,7 @@ const ProfilePage = () => {
                     </button>
 
                     <button
-                      disabled={repos.length === profile.repoAmount}
+                      disabled={page * 3 >= profile.repoAmount}
                       onClick={handleOnLoadMoreDesktop}
                       className="hidden lg:flex
                                   justify-center items-center p-1 border border-black border-solid rounded-md disabled:grayscale disabled:opacity-30">

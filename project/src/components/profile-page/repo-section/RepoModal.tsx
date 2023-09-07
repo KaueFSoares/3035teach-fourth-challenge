@@ -3,6 +3,7 @@ import { IoClose } from "react-icons/io5"
 import { RepoFullData, getSingleRepo } from "../../../services/profile.service"
 import Loading from "../../Loading"
 import ModalContext from "../../../context/ModalContext"
+import RepoItem from "./RepoItem"
 
 interface Props {
   userName: string
@@ -34,27 +35,12 @@ const RepoModal = ({ userName, repoName }: Props) => {
             </header>
             <hr className="text-gray" />
             <section className="pt-4 text-sm flex flex-col gap-4 sm:text-base">
-              <div className="w-full bg-gray/[.3] p-2 rounded-lg lg:rounded-xl lg:p-3">
-                <p className="text-black/[.6] text-xs sm:text-sm">Link</p>
-                <a href={data.link ? data.link : ""}>
-                  <p className="overflow-hidden break-all underline">{data.link ? data.link : "No Link"}</p>
-                </a>
-              </div>
 
-              <div className="w-full bg-gray/[.3] p-2 rounded-lg lg:rounded-xl lg:p-3">
-                <p className="text-black/[.6] text-xs sm:text-sm">Privacy</p>
-                <p>{data.private ? "Private" : "Public"}</p>
-              </div>
+              <RepoItem name="Link" value={data.link ? data.link : "No Link"} link/>
+              <RepoItem name="Privacy" value={data.private ? "Private" : "Public"} />
+              <RepoItem name="Language" value={data.language ? data.language : "No language"} />
+              <RepoItem name="Description" value={data.description ? data.description : "No description"} />
 
-              <div className="w-full bg-gray/[.3] p-2 rounded-lg lg:rounded-xl lg:p-3">
-                <p className="text-black/[.6] text-xs sm:text-sm">Language</p>
-                <p>{data.language ? data.language : "No language"}</p>
-              </div>
-
-              <div className="w-full bg-gray/[.3] p-2 rounded-lg lg:rounded-xl lg:p-3">
-                <p className="text-black/[.6] text-xs sm:text-sm">Description</p>
-                <p>{data.description ? data.description : "No description"}</p>
-              </div>
             </section>
           </div>
         </>

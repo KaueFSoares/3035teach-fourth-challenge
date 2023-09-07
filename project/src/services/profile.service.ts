@@ -1,5 +1,5 @@
 import { ResponseCode } from "../types/ResponseCode"
-import { API } from "./api"
+import { RepoAPI, UserAPI } from "./api"
 
 export interface ProfileData {
   name: string;
@@ -8,7 +8,14 @@ export interface ProfileData {
   repoAmount: number;
 }
 
-export interface RepoData {
+export interface RepoMinData {
+  id: number;
+  name: string;
+  description: string;
+  link: string;
+}
+
+export interface RepoFullData {
   id: number;
   name: string;
   description: string;
@@ -26,10 +33,38 @@ interface GitHubRepo {
   language: string | null;
 }
 
-
-export const getRepos = async (username: string, page: number): Promise<[ResponseCode, RepoData[]]> => {
+export const getSingleRepo = async (username: string, repoName: string): Promise<[ResponseCode, RepoFullData]> => {
   try {
-    const response = await API.get(`/${username}/repos?per_page=3&&page=${page}`, {
+    const response = await RepoAPI.get(`/${username}/${repoName}`, {
+      validateStatus: (status) => status === 200 || status === 404,
+    })
+
+    const data = {
+      id: response.data.id,
+      name: response.data.name,
+      description: response.data.description,
+      link: response.data.html_url,
+      language: response.data.language,
+      private: response.data.private,
+    } as RepoFullData
+
+    if (response.status === 200) {
+      return [ "ok", data ]
+    }
+
+    if (response.status === 404) {
+      return [ "notfound", data ]
+    }
+
+    return [ "error", data ]
+  } catch (error) {
+    return [ "error", {} as RepoFullData ]
+  }
+}
+
+export const getRepoPage = async (username: string, page: number): Promise<[ResponseCode, RepoMinData[]]> => {
+  try {
+    const response = await UserAPI.get(`/${username}/repos?per_page=3&&page=${page}`, {
       validateStatus: (status) => status === 200 || status === 404,
     })
 
@@ -41,7 +76,7 @@ export const getRepos = async (username: string, page: number): Promise<[Respons
         link: repo.html_url,
         language: repo.language,
         private: repo.private,
-      } as RepoData
+      } as RepoMinData
     })
 
     if (response.status === 200) {
@@ -54,13 +89,13 @@ export const getRepos = async (username: string, page: number): Promise<[Respons
 
     return [ "error", data ]
   } catch (error) {
-    return [ "error", [] as RepoData[] ]
+    return [ "error", [] as RepoMinData[] ]
   }
 }
 
 export const getProfile = async (username: string): Promise<[ResponseCode, ProfileData]> => {
   try {
-    const response = await API.get(`/${username}`, {
+    const response = await UserAPI.get(`/${username}`, {
       validateStatus: (status) => status === 200 || status === 404,
     })
 

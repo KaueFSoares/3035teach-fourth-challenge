@@ -1,9 +1,9 @@
-import { RepoData } from "../../../services/profile.service"
+import { RepoMinData } from "../../../services/profile.service"
 import Loading from "../../Loading"
 import RepoCard from "./RepoCard"
 
 interface CardListDesktopProps {
-  repos: RepoData[]
+  repos: RepoMinData[]
   loading: boolean
   page: number
   repoAmount: number

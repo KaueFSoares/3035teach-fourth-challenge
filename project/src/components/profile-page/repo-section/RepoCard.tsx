@@ -11,9 +11,9 @@ const RepoCard = ({ data: repo }: RepoCardProps) => {
   
   return (
     <div className="w-full sm:w-[calc(50%-.5rem)] md:w-[calc(33.333%-.67rem)] xl:w-[calc(33.333%-1.335rem)]
-                   shadow-repo rounded-lg">
+                   shadow-repo rounded-lg overflow-hidden">
       <h3 
-        className="p-5 text-base font-semibold cursor-pointer"
+        className="p-5 text-base font-semibold cursor-pointer hover:bg-gray/[.5] transition-all"
         onClick={() => onShowModal(repo.name)}
       >
         {repo.name}

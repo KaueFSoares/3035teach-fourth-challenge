@@ -19,7 +19,7 @@ export default {
         "spin-slow": "spin 3s linear infinite",
       },
       boxShadow: {
-        repoCard: "0 0 5px rgba(0, 0, 0, 0.2)",
+        repo: "0 0 5px rgba(0, 0, 0, 0.2)",
       },
     },
   },

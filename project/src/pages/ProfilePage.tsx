@@ -93,7 +93,7 @@ const ProfilePage = () => {
                 </div>
 
                 <div className="w-full flex justify-center gap-8">
-                  <p className="w-1/2 flex justify-end">1 - {repos.length} out of {profile.repoAmount}</p>
+                  <p className="w-1/2 flex justify-end">{repos.length} of {profile.repoAmount}</p>
 
                   <div className="flex gap-2 w-1/2 justify-start">
                     <button 

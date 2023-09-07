@@ -18,6 +18,9 @@ export default {
       animation: {
         "spin-slow": "spin 3s linear infinite",
       },
+      boxShadow: {
+        repoCard: "0 0 5px rgba(0, 0, 0, 0.2)",
+      },
     },
   },
   plugins: [],

@@ -6,7 +6,7 @@ interface RepoCardProps {
 
 const RepoCard = ({ data: repo }: RepoCardProps) => {
   return (
-    <div className="w-full shadow-md rounded-lg">
+    <div className="w-full shadow-repoCard rounded-lg">
       <h3 className="p-5 text-base font-semibold">{repo.name}</h3>
 
       <hr className="w-full text-dark-blue"/>

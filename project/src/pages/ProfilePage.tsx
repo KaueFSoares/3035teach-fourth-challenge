@@ -10,7 +10,7 @@ const ProfilePage = () => {
 
   const { userName } = useParams<{ userName: string }>()
 
-  const [ profile, setProfile ] = useState<ProfileData | undefined>()
+  const [ profile, setProfile ] = useState<ProfileData>()
 
   useEffect(() => {
     if (userName) {

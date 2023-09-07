@@ -15,7 +15,11 @@ const RepoCard = ({ data: repo }: RepoCardProps) => {
       <div className="p-2 lg:p-6 text-sm overflow-hidden flex flex-col gap-2 lg:gap-4 xl:px-10">
         <div className="overflow-hidden bg-gray/[.3] p-3 rounded-xl">
           <p className="font-semibold">Link</p>
-          <p className="underline text-xs overflow-hidden text-ellipsis whitespace-nowrap">{repo.link ? repo.link : "No Link"}</p>
+          <a href={repo.link ? repo.link : ""}>
+            <p className="underline text-xs overflow-hidden text-ellipsis whitespace-nowrap">
+              {repo.link ? repo.link : "No Link"}
+            </p>
+          </a>
         </div>
 
         <div className="overflow-hidden bg-gray/[.3] p-3 rounded-xl">

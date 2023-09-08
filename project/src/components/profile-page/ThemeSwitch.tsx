@@ -12,7 +12,7 @@ const ThemeSwitch = styled(Switch)(({ theme }) => ({
     transform: "translateX(6px)",
     "&.Mui-checked": {
       color: "#fff",
-      transform: "translateX(22px)",
+      transform: "translateX(24px)",
       "& .MuiSwitch-thumb:before": {
         backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="${encodeURIComponent(
           "#fff",
@@ -25,7 +25,7 @@ const ThemeSwitch = styled(Switch)(({ theme }) => ({
     },
   },
   "& .MuiSwitch-thumb": {
-    backgroundColor: theme.palette.mode === "dark" ? "#003892" : "#001e3c",
+    backgroundColor: theme.palette.mode === "dark" ? "#003892" : "#05478A",
     width: 32,
     height: 32,
     "&:before": {

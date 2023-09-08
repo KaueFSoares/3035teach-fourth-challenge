@@ -12,11 +12,11 @@ const Header = () => {
   }, [ darkMode ])
 
   return (
-    <header className="h-[9vh] py-5 px-5 lg:px-[7.5%] bg-white dark:bg-gray shadow-md w-full flex justify-between items-center">
+    <header className="h-[9vh] py-5 px-5 lg:px-[7.5%] bg-white dark:bg-medium-gray shadow-md w-full flex justify-between items-center">
       <Link to="/" className="h-full">
-        <img src="/bg-white-logo.png" alt="W Tech Logo" className="h-full" />
+        <img src={`${darkMode ? "/logo.png" : "/bg-white-logo.png"}`} alt="W Tech Logo" className="h-full" />
       </Link>
-      <FormGroup className="flex items-center justify-center py-1 px-2 dark:bg-white rounded-md">
+      <FormGroup className="flex items-center justify-center py-1 px-2 dark:bg-white rounded-md scale-75 lg:scale-100">
         <FormControl>
           <ThemeSwitch checked={darkMode} onChange={() => setDarkMode((prev) => !prev)} />
         </FormControl>

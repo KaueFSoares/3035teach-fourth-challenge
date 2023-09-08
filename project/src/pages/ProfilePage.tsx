@@ -41,11 +41,11 @@ const ProfilePage = () => {
 
   return (
     <ModalContext.Provider value={{ onShowModal }}>
-      <main className={`w-full min-h-screen bg-gray/[.5] flex flex-col items-center justify-start ${showModal && "max-md:h-screen"} ${!profile && "h-screen"}`}>
+      <main className={`w-full min-h-screen bg-gray/[.5] dark:bg-dark-gray flex flex-col items-center justify-start ${showModal && "max-md:h-screen"} ${!profile && "h-screen"} dark:text-white`}>
         {profile ? (
           <>
             <Header />
-            <div className="w-[95%] h-full bg-white box-border shadow-md rounded-xl my-4 md:my-6 xl:w-[85%]">
+            <div className="w-[95%] h-full bg-white dark:bg-medium-gray box-border shadow-md rounded-xl my-4 md:my-6 xl:w-[85%]">
 
               <div className={`${showModal ? "hidden" : "flex"} flex-col`}>
 

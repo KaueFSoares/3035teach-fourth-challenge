@@ -26,14 +26,14 @@ const RepoModal = ({ userName, repoName }: Props) => {
         <>
           <h3 className="w-full text-xl font-bold mb-8 sm:text-2xl sm:mb-12">Especification</h3>
 
-          <div className="w-full shadow-repo rounded-md p-4 sm:w-4/5 md:w-3/5 lg:p-8 xl:w-1/2">
+          <div className="w-full shadow-repo rounded-md p-4 sm:w-4/5 md:w-3/5 lg:p-8 xl:w-1/2 dark:bg-light-gray dark:text-black">
             <header className="flex justify-between gap-2 px-2 py-4">
               <h2 className="text-base font-semibold sm:text-lg">{data.name}</h2>
               <button onClick={() => onShowModal(repoName)} type="button" className="flex items-center justify-center">
-                <IoClose className="text-2xl text-gray sm:text-3xl" />
+                <IoClose className="text-2xl text-gray sm:text-3xl dark:text-black" />
               </button>
             </header>
-            <hr className="text-gray" />
+            <hr className="text-gray dark:text-white" />
             <section className="pt-4 text-sm flex flex-col gap-4 sm:text-base">
 
               <RepoItem name="Link" value={data.link ? data.link : "No Link"} link/>

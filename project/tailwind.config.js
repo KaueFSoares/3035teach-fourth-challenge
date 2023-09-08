@@ -11,6 +11,9 @@ export default {
         "light-blue": "#0070E0",
         "orange": "#FC8621",
         "gray": "#BDBDBD",
+        "dark-gray": "#575759",
+        "medium-gray": "#6A6F73",
+        "light-gray": "#B5B5B5",
       },
       screens: {
         xsm: "380px",
@@ -24,4 +27,5 @@ export default {
     },
   },
   plugins: [],
+  darkMode: "class",
 }

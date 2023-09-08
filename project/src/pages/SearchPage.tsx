@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { HiOutlineMail } from "react-icons/hi"
 import { search } from "../services/search.service"
 import Loading from "../components/Loading"
 import Message from "../components/search-page/Message"
@@ -82,14 +83,17 @@ const SearchPage = () => {
               {showMessage && <Message text={message} handleOnClose={handleOnCloseMessage}/>}
               <div className="flex flex-col w-full">
                 <label htmlFor="user-input" className="text-xl mb-2 font-semibold lg:text-lg">User</label>
-                <input 
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  type="text" 
-                  id="user-input"
-                  placeholder="Enter your Github username"
-                  className="w-full border-2 border-gray rounded-md p-2 mb-4 text-md outline-none focus:border-dark-blue focus:bg-dark-blue/[.1] lg:text-sm lg:mb-8"
-                />
+                <div className="flex border-2 mb-4 border-gray rounded-md justify-center items-center p-2 gap-2 lg:text-sm lg:mb-8">
+                  <input 
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    type="text" 
+                    id="user-input"
+                    placeholder="Enter your Github username"
+                    className="w-full text-md outline-none "
+                  />
+                  <HiOutlineMail className="text-gray text-xl lg:text-2xl" />
+                </div>
               </div>
 
               <button 
